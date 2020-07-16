@@ -1,0 +1,7 @@
+{
+  "name": "GoalList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
