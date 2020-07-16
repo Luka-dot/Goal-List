@@ -14,7 +14,7 @@ const AllGoals: React.FC = () => {
             </IonHeader>
             <IonContent>
                 <IonContent className="ion-text-center">
-                    <h3>ALL GOALS</h3>
+                    <h3>ALL GOALS PAGE</h3>
                 </IonContent>
             </IonContent>
         </IonPage>

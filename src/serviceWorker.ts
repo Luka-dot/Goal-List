@@ -32,6 +32,8 @@ export function register(config?: Config) {
       process.env.PUBLIC_URL,
       window.location.href
     );
+
+    
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
@@ -39,12 +41,15 @@ export function register(config?: Config) {
       return;
     }
 
+
+
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
+
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
@@ -71,6 +76,7 @@ function registerValidSW(swUrl: string, config?: Config) {
         if (installingWorker == null) {
           return;
         }
+
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
@@ -82,6 +88,7 @@ function registerValidSW(swUrl: string, config?: Config) {
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
 
+
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -91,6 +98,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
+
 
               // Execute callback
               if (config && config.onSuccess) {
