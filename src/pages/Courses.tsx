@@ -2,20 +2,20 @@ import React from 'react';
 import { IonHeader, IonContent, IonToolbar, IonTitle, IonButton, IonPage, IonGrid, IonRow, IonCol, IonCard, IonCardContent } from '@ionic/react';
 // import { useHistory } from 'react-router-dom';
 
+export const CORSE_DATA = [
+    { id: 'c1', title: 'IONIC course' },
+    { id: 'c2', title: 'This is another test title' },
+    { id: 'c3', title: 'Just a test data' },
+    { id: 'c4', title: 'IONIC with React' },
+    { id: 'c5', title: 'All this is just dummy data' },
+];
+
 const Courses: React.FC = () => {
     // const history= useHistory();
 
     // const changePageHandler = () => {
     //     history.push('/course-goals');
     // };
-
-    const CORSE_DATA = [
-        { id: 'c1', title: 'IONIC course' },
-        { id: 'c2', title: 'This is another test title' },
-        { id: 'c3', title: 'Just a test data' },
-        { id: 'c4', title: 'IONIC with React' },
-        { id: 'c5', title: 'All this is just dummy data' },
-    ];
 
     return (
         <IonPage>
@@ -36,7 +36,7 @@ const Courses: React.FC = () => {
                                     <IonCard>
                                         <IonCardContent>
                                             <h2>{course.title}</h2>
-                                            <IonButton size="small" shape="round" routerLink="">View Course Goals</IonButton>
+                                            <IonButton size="small" shape="round" routerLink={`/courses/${course.id}`}>View Course Goals</IonButton>
                                         </IonCardContent>
                                     </IonCard>
                                 </IonCol>
