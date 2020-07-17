@@ -1,7 +1,5 @@
 {
-  "name": "ShoppingList",
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "ionic-react",
+  "integrations": {},
   "type": "react"
 }

@@ -33,13 +33,15 @@ const CourseGoals: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {selectedCourse && <IonList>
-          {selectedCourse.goals.map(goal => (
-            <IonItem key={goal.id} lines="inset">
-              <IonLabel>{goal.text}</IonLabel>
-            </IonItem>
-          ))}
-        </IonList>}
+        {selectedCourse && (
+          <IonList>
+            {selectedCourse.goals.map(goal => (
+              <IonItem key={goal.id} lines="full">
+                <IonLabel>{goal.text}</IonLabel>
+              </IonItem>
+            ))}
+          </IonList>
+        )}
       </IonContent>
     </IonPage>
   );

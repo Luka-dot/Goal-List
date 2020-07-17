@@ -18,17 +18,33 @@ import {
 // import { useHistory } from 'react-router-dom';
 
 export const COURSE_DATA = [
-  { id: 'c1', title: 'Ionic + React - The Practical Guide', enrolled: new Date('03/22/2019'), goals: [
-    { id: 'cg1', text: 'Finish this goal'},
-    { id: 'cg4', text: 'Finish this goal and goaaalllllsssssss!!!!!!!!'},
-    { id: 'cg4', text: 'Finish this goal and goaaalllllsssssss!!!!!!!!'}
-  ] },
-  { id: 'c2', title: 'React.js - The Complete Guide', enrolled: new Date('05/12/2019'), goals: [
-    { id: 'cg2', text: 'Finish this goal and goaaallllls'}
-  ] },
-  { id: 'c3', title: 'JavaScript - The Complete Guide', enrolled: new Date('09/2/2019'), goals: [
-    { id: 'cg3', text: 'Last goal for this.'}
-  ] }
+  {
+    id: 'c1',
+    title: 'Ionic + React - The Practical Guide',
+    enrolled: new Date('03/22/2019'),
+    goals: [
+      { id: 'c1g1', text: 'Finish the course!' },
+      { id: 'c1g2', text: 'Learn a lot!' }
+    ]
+  },
+  {
+    id: 'c2',
+    title: 'React.js - The Complete Guide',
+    enrolled: new Date('05/15/2018'),
+    goals: [
+      { id: 'c2g1', text: 'Finish the course!' },
+      { id: 'c2g2', text: 'Learn a lot!' }
+    ]
+  },
+  {
+    id: 'c3',
+    title: 'JavaScript - The Complete Guide',
+    enrolled: new Date('01/22/2020'),
+    goals: [
+      { id: 'c3g1', text: 'Finish the course!' },
+      { id: 'c3g2', text: 'Learn a lot!' }
+    ]
+  }
 ];
 
 const Courses: React.FC = () => {
@@ -53,7 +69,14 @@ const Courses: React.FC = () => {
                 <IonCard>
                   <IonCardHeader>
                     <IonCardTitle>{course.title}</IonCardTitle>
-                    <IonCardSubtitle>Enrolled on {course.enrolled.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</IonCardSubtitle>
+                    <IonCardSubtitle>
+                      Enrolled on{' '}
+                      {course.enrolled.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                      })}
+                    </IonCardSubtitle>
                   </IonCardHeader>
                   <IonCardContent>
                     <div className="ion-text-right">
