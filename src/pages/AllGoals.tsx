@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonHeader, IonContent, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton } from '@ionic/react';
+import { IonHeader, IonContent, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton, IonMenuButton } from '@ionic/react';
 
 const AllGoals: React.FC = () => {
     return (
@@ -7,7 +7,7 @@ const AllGoals: React.FC = () => {
             <IonHeader>
                 <IonToolbar className="ion-text-center">
                     <IonButtons slot="start">
-                        <IonBackButton defaultHref="/" />
+                        <IonMenuButton />
                     </IonButtons>
                     <IonTitle>ALL Goals page</IonTitle>
                 </IonToolbar>
