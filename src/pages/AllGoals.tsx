@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonHeader, IonContent, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton, IonMenuButton } from '@ionic/react';
+import { IonHeader, IonContent, IonToolbar, IonTitle, IonPage, IonButtons, IonMenuButton } from '@ionic/react';
 
 const AllGoals: React.FC = () => {
     return (

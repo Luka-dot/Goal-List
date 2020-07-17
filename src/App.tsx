@@ -38,22 +38,22 @@ const App: React.FC = () => (
             <IonTitle>Course Goals</IonTitle>
           </IonToolbar>
         </IonHeader>
-          <IonContent>
-            <IonList>
-              <IonMenuToggle>
+        <IonContent>
+          <IonList>
+            <IonMenuToggle>
               <IonItem button routerLink="/filter" routerDirection="none">
                 <IonIcon slot="start" icon={options} />
                 <IonLabel>Filters</IonLabel>
               </IonItem>
-              </IonMenuToggle>
-              <IonMenuToggle>
+            </IonMenuToggle>
+            <IonMenuToggle>
               <IonItem button routerLink="/all-goals" routerDirection="none">
                 <IonIcon slot="start" icon={list} />
                 <IonLabel>All Goals</IonLabel>
               </IonItem>
-              </IonMenuToggle>
-            </IonList>
-          </IonContent>
+            </IonMenuToggle>
+          </IonList>
+        </IonContent>
       </IonMenu>
       <IonTabs>
         <IonRouterOutlet id="main">
