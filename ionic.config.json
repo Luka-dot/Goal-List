@@ -1,5 +1,5 @@
 {
-  "name": "GoalList",
+  "name": "ShoppingList",
   "integrations": {
     "capacitor": {}
   },

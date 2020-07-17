@@ -54,7 +54,7 @@ const App: React.FC = () => (
             <IonMenuToggle>
               <IonItem button routerLink="/courses/all-goals" routerDirection="none">
                 <IonIcon slot="start" icon={list} />
-                <IonLabel>All Goals</IonLabel>
+                <IonLabel>All Goalsss</IonLabel>
               </IonItem>
             </IonMenuToggle>
             <IonMenuToggle>
@@ -71,7 +71,7 @@ const App: React.FC = () => (
           <Filter />
         </Route>
         <Route path="/courses" exact>
-          <CourseTabs />
+          <CourseTabs />        
         </Route>
         <Redirect path='/' to='/courses' exact />
       </IonRouterOutlet>

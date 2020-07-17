@@ -19,7 +19,9 @@ import {
 
 export const COURSE_DATA = [
   { id: 'c1', title: 'Ionic + React - The Practical Guide', enrolled: new Date('03/22/2019'), goals: [
-    { id: 'cg1', text: 'Finish this goal'}
+    { id: 'cg1', text: 'Finish this goal'},
+    { id: 'cg4', text: 'Finish this goal and goaaalllllsssssss!!!!!!!!'},
+    { id: 'cg4', text: 'Finish this goal and goaaalllllsssssss!!!!!!!!'}
   ] },
   { id: 'c2', title: 'React.js - The Complete Guide', enrolled: new Date('05/12/2019'), goals: [
     { id: 'cg2', text: 'Finish this goal and goaaallllls'}

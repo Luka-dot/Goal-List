@@ -54,7 +54,7 @@ const App: React.FC = () => (
             <IonMenuToggle>
               <IonItem button routerLink="/courses/all-goals" routerDirection="none">
                 <IonIcon slot="start" icon={list} />
-                <IonLabel>All Goals</IonLabel>
+                <IonLabel>All Goals!!!</IonLabel>
               </IonItem>
             </IonMenuToggle>
             <IonMenuToggle>
