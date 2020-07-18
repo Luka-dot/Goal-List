@@ -16,7 +16,8 @@ import {
     IonItemOptions,
     IonItemOption,
     IonFab,
-    IonFabButton
+    IonFabButton,
+    isPlatform
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
 
@@ -56,11 +57,13 @@ const CourseGoals: React.FC = () => {
                     <IonTitle>
                         {selectedCourse ? selectedCourse.title : 'No course found!'}
                     </IonTitle>
+                    {!isPlatform('mobile') &&
                     <IonButtons slot="end">
                         <IonButton onClick={startAddGoalHandler}>
                             <IonIcon slot="icon-only" icon={addOutline} />
                         </IonButton>
                     </IonButtons>
+                    }
                 </IonToolbar>
             </IonHeader>
             <IonContent>
@@ -93,11 +96,11 @@ const CourseGoals: React.FC = () => {
                         ))}
                     </IonList>
                 )}
-                <IonFab horizontal="end" vertical="bottom">
+                {isPlatform('mobile') && <IonFab horizontal="end" vertical="bottom" slot="fixed">
                     <IonFabButton color="secondary" onClick={startAddGoalHandler}>
                         <IonIcon icon={addOutline} />
                     </IonFabButton>
-                </IonFab>
+                </IonFab>}
             </IonContent>
         </IonPage>
     );
