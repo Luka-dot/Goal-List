@@ -23,7 +23,7 @@ export const COURSE_DATA = [
     title: 'Ionic + React - The Practical Guide',
     enrolled: new Date('03/22/2019'),
     goals: [
-      { id: 'c1g1', text: 'Finish the course!' },
+      { id: 'c1g1', text: 'Finish the course!  THIS IS SOOOO STUPID' },
       { id: 'c1g2', text: 'Learn a lot!' }
     ]
   },
