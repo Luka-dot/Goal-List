@@ -21,7 +21,7 @@ const Filter: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <h2>The filter page...</h2>
+        <h2>The filter page!!!!...</h2>
       </IonContent>
     </IonPage>
   );
