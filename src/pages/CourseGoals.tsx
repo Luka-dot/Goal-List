@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     IonHeader,
     IonToolbar,
@@ -17,7 +17,8 @@ import {
     IonItemOption,
     IonFab,
     IonFabButton,
-    isPlatform
+    isPlatform,
+    IonAlert
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
 
@@ -25,13 +26,20 @@ import { COURSE_DATA } from './Courses';
 import { create, trash, addOutline } from 'ionicons/icons';
 
 const CourseGoals: React.FC = () => {
+    const [startedDeleting, setStartedDeleting] = useState(false);
+
     const selectedCourseId = useParams<{ courseId: string }>().courseId;
 
     const selectedCourse = COURSE_DATA.find(c => c.id === selectedCourseId);
 
-    const deleteItemHandler = () => {
+    const startDeleteGoalHandler = () => {
         console.log('deleted')
+        setStartedDeleting(true);
     };
+
+    const deleteGoalHandler = () => {
+        console.log('deleteHandler triggered.')
+    }
 
     // stopping propagation so only EditHandler will run. Without Edit and Delete handler will run
     const startEditGoalHandler = (event: React.MouseEvent) => {
@@ -48,6 +56,14 @@ const CourseGoals: React.FC = () => {
     }
 
     return (
+        <React.Fragment>
+            <IonAlert  
+                isOpen={startedDeleting} 
+                header="Are you sure?" 
+                message="Deleting can not be undone."
+                buttons={[{text: 'NO', role: 'cancel', handler: () => {setStartedDeleting(false)}},
+                            {text: 'YES', handler: deleteGoalHandler}]}
+            />
         <IonPage>
             <IonHeader>
                 <IonToolbar>
@@ -72,7 +88,7 @@ const CourseGoals: React.FC = () => {
                         {selectedCourse.goals.map(goal => (
                             <IonItemSliding key={goal.id}>
                                 <IonItemOptions side="start">
-                                    <IonItemOption onClick={deleteItemHandler} color="danger">
+                                    <IonItemOption onClick={startDeleteGoalHandler} color="danger">
                                         <IonIcon slot="icon-only" icon={trash} />
                                     </IonItemOption>
                                 </IonItemOptions>
@@ -103,6 +119,7 @@ const CourseGoals: React.FC = () => {
                 </IonFab>}
             </IonContent>
         </IonPage>
+        </React.Fragment>
     );
 };
 
