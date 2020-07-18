@@ -48,7 +48,7 @@ export const COURSE_DATA = [
       { id: 'c3g1', text: 'Finish the course!' },
       { id: 'c3g2', text: 'Learn a lot!' },
       { id: 'c3g3', text: 'Why is IONIC reload messed up???' },
-      { id: 'c3g4', text: 'More and MORE data!' }
+      { id: 'c3g4', text: 'More and MORE data!!!' }
     ]
   }
 ];
