@@ -18,7 +18,8 @@ import {
     IonFab,
     IonFabButton,
     isPlatform,
-    IonAlert
+    IonAlert,
+    IonToast
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
 
@@ -27,6 +28,7 @@ import { create, trash, addOutline } from 'ionicons/icons';
 
 const CourseGoals: React.FC = () => {
     const [startedDeleting, setStartedDeleting] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
 
     const selectedCourseId = useParams<{ courseId: string }>().courseId;
 
@@ -38,7 +40,8 @@ const CourseGoals: React.FC = () => {
     };
 
     const deleteGoalHandler = () => {
-        console.log('deleteHandler triggered.')
+        console.log('deleteHandler triggered.');
+        setToastMessage('Goal has been deleted');
     }
 
     // stopping propagation so only EditHandler will run. Without Edit and Delete handler will run
@@ -57,6 +60,14 @@ const CourseGoals: React.FC = () => {
 
     return (
         <React.Fragment>
+            <IonToast 
+                isOpen={!!toastMessage} 
+                message={toastMessage}
+                duration={2000} 
+                onDidDismiss={() => {
+                    setToastMessage('');
+                }} 
+            />
             <IonAlert  
                 isOpen={startedDeleting} 
                 header="Are you sure?" 
