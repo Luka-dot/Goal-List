@@ -35,7 +35,9 @@ export const COURSE_DATA = [
     enrolled: new Date('05/15/2018'),
     goals: [
       { id: 'c2g1', text: 'Finish the course!' },
-      { id: 'c2g2', text: 'Learn a lot!' }
+      { id: 'c2g2', text: 'Learn a lot!' },
+      { id: 'c2g3', text: 'Why is IONIC reload messed up???' },
+      { id: 'c2g4', text: 'More and MORE data!' }
     ]
   },
   {
