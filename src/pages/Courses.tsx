@@ -8,12 +8,6 @@ import {
     IonGrid,
     IonRow,
     IonCol,
-    IonCard,
-    IonCardContent,
-    IonButton,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
     IonFab,
     IonFabButton,
     IonIcon

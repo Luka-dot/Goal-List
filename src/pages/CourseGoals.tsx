@@ -8,13 +8,8 @@ import {
   IonButtons,
   IonBackButton,
   IonList,
-  IonItem,
-  IonLabel,
   IonButton,
   IonIcon,
-  IonItemSliding,
-  IonItemOptions,
-  IonItemOption,
   IonFab,
   IonFabButton,
   isPlatform,
@@ -22,7 +17,7 @@ import {
   IonToast
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
-import { create, trash, addOutline } from 'ionicons/icons';
+import { addOutline } from 'ionicons/icons';
 
 import { COURSE_DATA } from './Courses';
 import EditModal from '../components/EditModal';

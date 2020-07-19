@@ -7,7 +7,6 @@ import {
     IonCardContent,
     IonButton
 } from '@ionic/react';
-import { create, trash } from 'ionicons/icons';
 
 const CourseItem: React.FC<{
     title: string;

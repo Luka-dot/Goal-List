@@ -2,20 +2,9 @@ import React from 'react';
 import {
   IonApp,
   IonRouterOutlet,
-  IonIcon,
-  IonLabel,
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonList,
-  IonItem,
-  IonMenuToggle
 } from '@ionic/react';
 import { Route, Redirect } from 'react-router-dom';
 import { IonReactRouter } from '@ionic/react-router';
-import { list, options } from 'ionicons/icons';
 import SideDrawer from '../components/SideDrawer';
 
 import Filter from './pages/Filter';
