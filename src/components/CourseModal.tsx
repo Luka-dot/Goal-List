@@ -11,7 +11,8 @@ import {
   IonCol,
   IonItem,
   IonLabel,
-  IonInput
+  IonInput,
+  IonDatetime
 } from '@ionic/react';
 
 const AddCourseModal: React.FC<{
@@ -21,16 +22,27 @@ const AddCourseModal: React.FC<{
   return (
     <IonModal isOpen={props.show}>
       <IonHeader>
+          <IonToolbar>
+              <IonTitle>Add Course</IonTitle>
+          </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonGrid>
           <IonRow>
             <IonCol>
               <IonItem>
-                <IonLabel position="floating">ADD course</IonLabel>
+                <IonLabel position="floating">add text here...</IonLabel>
                 <IonInput type="text" />
               </IonItem>
             </IonCol>
+          </IonRow>
+          <IonRow>
+              <IonCol>
+                  <IonItem>
+                      <IonLabel>Enrolment date</IonLabel>
+                      <IonDatetime displayFormat="MM DD YY" />
+                  </IonItem>
+              </IonCol>
           </IonRow>
           <IonRow className="ion-text-center">
             <IonCol>
@@ -39,9 +51,7 @@ const AddCourseModal: React.FC<{
               </IonButton>
             </IonCol>
             <IonCol>
-              <IonButton color="secondary" expand="block">
-                Save
-              </IonButton>
+              <IonButton color="secondary" expand="block">Save</IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>

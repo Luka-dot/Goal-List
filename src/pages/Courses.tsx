@@ -83,7 +83,6 @@ const Courses: React.FC = () => {
                 onCancel={cancelAddCourse}
             />
             <IonPage>
-
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>Courses</IonTitle>
@@ -113,8 +112,8 @@ const Courses: React.FC = () => {
                                                     color="secondary"
                                                     routerLink={`/courses/${course.id}`}
                                                 >
-                                                    View Course Goals
-                      </IonButton>
+                                                View Course Goals
+                                                </IonButton>
                                             </div>
                                         </IonCardContent>
                                     </IonCard>
