@@ -9,7 +9,22 @@ import {
   IonMenuButton
 } from '@ionic/react';
 
+import { COURSE_DATA } from './Courses';
+
 const AllGoals: React.FC = () => {
+
+  const goals = COURSE_DATA.map( course => {
+    return course.goals;
+  }).reduce((goalArr, nestedGoals) => {
+    let updatedGoalArray = goalArr;
+    for (const goal of nestedGoals) {
+      updatedGoalArray = updatedGoalArray.concat(goal);
+    }
+    return updatedGoalArray;
+  }, []);
+
+  console.log(goals)
+
   return (
     <IonPage>
       <IonHeader>
