@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IonHeader,
   IonContent,
@@ -13,9 +13,15 @@ import {
   IonButton,
   IonCardHeader,
   IonCardTitle,
-  IonCardSubtitle
+  IonCardSubtitle,
+  IonFab,
+  IonFabButton,
+  IonIcon
 } from '@ionic/react';
+import { addOutline } from 'ionicons/icons';
 // import { useHistory } from 'react-router-dom';
+
+import AddCourseModal from '../components/CourseModal';
 
 export const COURSE_DATA = [
   {
@@ -60,8 +66,24 @@ const Courses: React.FC = () => {
   //   history.push('/course-goals');
   // };
 
+  const [ addingCourse, setAddingCourse ] = useState(false);
+
+  const startAddCourseHandler = () => {
+    setAddingCourse(true);
+  };
+
+  const cancelAddCourse = () => {
+      setAddingCourse(false)
+  }
+
   return (
+      <React.Fragment>
+          <AddCourseModal
+        show={addingCourse}
+        onCancel={cancelAddCourse}
+      />
     <IonPage>
+        
       <IonHeader>
         <IonToolbar>
           <IonTitle>Courses</IonTitle>
@@ -101,7 +123,13 @@ const Courses: React.FC = () => {
           ))}
         </IonGrid>
       </IonContent>
+      <IonFab horizontal="end" vertical="bottom">
+              <IonFabButton color="secondary" >
+                <IonIcon icon={addOutline} onClick={startAddCourseHandler} />
+              </IonFabButton>
+            </IonFab>
     </IonPage>
+    </React.Fragment>
   );
 };
 
