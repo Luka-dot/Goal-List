@@ -6,7 +6,9 @@ import {
   IonTitle,
   IonPage,
   IonButtons,
-  IonMenuButton
+  IonMenuButton,
+  IonList,
+  IonItem
 } from '@ionic/react';
 
 import { COURSE_DATA } from './Courses';
@@ -36,7 +38,11 @@ const AllGoals: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <h2>This works - all goals page!</h2>
+        <IonList>
+          {goals.map(goal => (
+            <IonItem key={goal.id}>{goal.text}</IonItem>
+          ))}
+        </IonList>
       </IonContent>
     </IonPage>
   );
