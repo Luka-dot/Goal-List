@@ -20,12 +20,13 @@ import {
     isPlatform,
     IonAlert,
     IonToast,
-    IonModal
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
 
 import { COURSE_DATA } from './Courses';
 import { create, trash, addOutline } from 'ionicons/icons';
+
+import EditModal from '../components/EditModal';
 
 const CourseGoals: React.FC = () => {
     const [startedDeleting, setStartedDeleting] = useState(false);
@@ -67,18 +68,7 @@ const CourseGoals: React.FC = () => {
 
     return (
         <React.Fragment>
-            <IonModal isOpen={isEditing}>
-                <IonHeader>
-                    <IonToolbar>
-                        <IonTitle>Edit goal</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-                <IonContent>
-                    <p>Editing...</p>
-                    <IonButton onClick={cancelEditGoalHandler} >Cancel</IonButton>
-                    <IonButton>Save</IonButton>
-                </IonContent>
-            </IonModal>
+            <EditModal show={isEditing} onCancel={cancelEditGoalHandler} />
             <IonToast
                 isOpen={!!toastMessage}
                 message={toastMessage}
