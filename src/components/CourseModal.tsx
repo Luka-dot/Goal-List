@@ -21,7 +21,7 @@ const AddCourseModal: React.FC<{
     onCancel: () => void;
     onSave: (title: string, date: Date) => void;
 }> = props => {
-    const [ error, setError ] = useState('');
+    const [error, setError] = useState('');
 
     const titleRef = useRef<HTMLIonInputElement>(null);
     const dateRef = useRef<HTMLIonDatetimeElement>(null);
@@ -30,7 +30,7 @@ const AddCourseModal: React.FC<{
         const enteredTitle = titleRef.current!.value;
         const selectedDate = dateRef.current!.value;
 
-        if (!enteredTitle || !selectedDate || enteredTitle.toString().trim().length === 0 || selectedDate.trim().length === 0 ) {
+        if (!enteredTitle || !selectedDate || enteredTitle.toString().trim().length === 0 || selectedDate.trim().length === 0) {
             setError('Please enter valid title and date.')
             return;
         }
@@ -68,7 +68,7 @@ const AddCourseModal: React.FC<{
                         <IonRow className="ion-text-center">
                             <IonCol>
                                 <IonText color="danger">
-                                <p>{error}</p>
+                                    <p>{error}</p>
                                 </IonText>
                             </IonCol>
                         </IonRow>

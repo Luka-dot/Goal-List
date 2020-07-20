@@ -34,7 +34,7 @@ const CourseItem: React.FC<{
                         color="secondary"
                         routerLink={`/courses/${props.id}`}
                     >
-                    View Course Goals
+                        View Course Goals
                     </IonButton>
                 </div>
             </IonCardContent>

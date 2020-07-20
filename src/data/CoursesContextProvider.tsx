@@ -3,27 +3,27 @@ import React, { useState } from 'react';
 import CoursesContext, { Course } from './courses-context';
 
 const CoursesContextProvider: React.FC = props => {
-    const [ courses, setCourses ] = useState<Course[]>([]);
+    const [courses, setCourses] = useState<Course[]>([]);
 
-    const addCourse = () => {};
+    const addCourse = () => { };
 
-    const addGoal = () => {}; 
+    const addGoal = () => { };
 
-    const deleteGoal =() => {};
+    const deleteGoal = () => { };
 
-    const updateGoal = () => {};
+    const updateGoal = () => { };
 
     return (
-        <CoursesContext.Provider 
+        <CoursesContext.Provider
             value={{
-                courses: courses, 
-                addGoal: addGoal, 
-                addCourse: addCourse, 
-                deleteGoal: deleteGoal, 
-                updateGoal: updateGoal 
-                }} 
-            >
-          {props.children}  
+                courses: courses,
+                addGoal: addGoal,
+                addCourse: addCourse,
+                deleteGoal: deleteGoal,
+                updateGoal: updateGoal
+            }}
+        >
+            {props.children}
         </CoursesContext.Provider>
     );
 };
