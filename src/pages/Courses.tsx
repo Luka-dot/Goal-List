@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     IonHeader,
     IonContent,
@@ -17,6 +17,7 @@ import { addOutline } from 'ionicons/icons';
 
 import AddCourseModal from '../components/CourseModal';
 import CoursItem from '../components/CoursItem';
+import CoursesContext from '../data/courses-context';
 
 export const COURSE_DATA = [
     {
@@ -63,6 +64,8 @@ const Courses: React.FC = () => {
 
     const [addingCourse, setAddingCourse] = useState(false);
 
+    const coursesCtx = useContext(CoursesContext);
+
     const startAddCourseHandler = () => {
         setAddingCourse(true);
     };
@@ -72,7 +75,7 @@ const Courses: React.FC = () => {
     };
 
     const courseAddHandler = (title: string, date: Date) => {
-        
+        coursesCtx.addCourse(title, date);
     };
 
     return (
@@ -90,7 +93,7 @@ const Courses: React.FC = () => {
                 </IonHeader>
                 <IonContent>
                     <IonGrid>
-                        {COURSE_DATA.map(course => (
+                        {coursesCtx.courses.map(course => (
                             <IonRow key={course.id}>
                                 <IonCol size-md="4" offset-md="4">
                                     <CoursItem  
