@@ -76,6 +76,7 @@ const Courses: React.FC = () => {
 
     const courseAddHandler = (title: string, date: Date) => {
         coursesCtx.addCourse(title, date);
+        setAddingCourse(false);
     };
 
     return (
