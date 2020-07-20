@@ -13,7 +13,8 @@ const CoursesContextProvider: React.FC = props => {
                 { id: 'c1g2', text: 'Learn a lot!' },
                 { id: 'c1g3', text: 'Why is IONIC reload messed up???' },
                 { id: 'c1g4', text: 'More and MORE data!' }
-            ]
+            ],
+            included: true,
         }
     ]);
 
@@ -22,7 +23,8 @@ const CoursesContextProvider: React.FC = props => {
             id: Math.random().toString(),
             title: title,
             enrolled: date,
-            goals: []
+            goals: [],
+            included: true
         };
 
         setCourses((curCourses) => {
@@ -81,6 +83,18 @@ const CoursesContextProvider: React.FC = props => {
         });
       };
 
+      const changeCourseFilter = (courseId: string, isIncluded: boolean) => {
+        setCourses(() => {
+            // alot of copying here. this is to avoid mutating data in the memory that can possibly lead to issues.
+            const updatedCourses = [...courses];
+            const updatedCourseIndex = updatedCourses.findIndex(courses => courses.id === courseId);
+            
+            const updatedCourse ={...updatedCourses[updatedCourseIndex], included: isIncluded};
+            updatedCourses[updatedCourseIndex] = updatedCourse;
+            return updatedCourses;
+        })
+      };
+
     return (
         <CoursesContext.Provider
             value={{
@@ -88,7 +102,8 @@ const CoursesContextProvider: React.FC = props => {
                 addGoal: addGoal,
                 addCourse: addCourse,
                 deleteGoal: deleteGoal,
-                updateGoal: updateGoal
+                updateGoal: updateGoal,
+                changeCourseFilter: changeCourseFilter
             }}
         >
             {props.children}

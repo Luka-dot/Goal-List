@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   IonHeader,
   IonContent,
@@ -12,11 +12,15 @@ import {
   IonItem
 } from '@ionic/react';
 
-import { COURSE_DATA } from './Courses';
+import CoursesContext from '../data/courses-context';
 
 const AllGoals: React.FC = () => {
 
-  const goals = COURSE_DATA.map( course => {
+  const coursesCtx = useContext(CoursesContext);
+
+  const goals = coursesCtx.courses.filter(course => {
+    return course.included;
+  }).map( course => {
     return course.goals.map(goal => {
       return { id: goal.id, text: goal.text, courseTitle: course.title };
     });
