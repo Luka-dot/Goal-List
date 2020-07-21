@@ -22,6 +22,7 @@ import { addOutline } from 'ionicons/icons';
 import EditModal from '../components/EditModal';
 import EditableGoalItem from '../components/EditableGoalItem';
 import CoursesContext from '../data/courses-context';
+//import '../theme/custom.css';
 
 const CourseGoals: React.FC = () => {
   const [startedDeleting, setStartedDeleting] = useState(false);
@@ -61,8 +62,9 @@ const CourseGoals: React.FC = () => {
     setSelectedGoal(goal);
   };
 
-  const markCompleteHandler = () => {
-    console.log('completed...')
+  const markCompleteHandler = (goalId: string) => {
+    selectedGoalIdRef.current = goalId;
+    console.log('completed...' + goalId)
 };
 
   const cancelEditGoalHandler = () => {
@@ -99,7 +101,7 @@ const CourseGoals: React.FC = () => {
         text={goal.text}  
         onStartDelete={startDeleteGoalHandler.bind(null, goal.id)}
         onStartEdit={startEditGoalHandler.bind(null, goal.id)}
-        onComplete={markCompleteHandler}
+        onComplete={markCompleteHandler.bind(null, goal.id)}
       />
       ))}
       </IonList>
@@ -122,16 +124,19 @@ const CourseGoals: React.FC = () => {
         isOpen={startedDeleting}
         header="Are you sure?"
         message="Do you want to delete the goal? This cannot be undone."
+        cssClass='buttonCss'
         buttons={[
           {
             text: 'No',
             role: 'cancel',
+            cssClass: 'cancel-button',
             handler: () => {
               setStartedDeleting(false);
             }
           },
           {
             text: 'Yes',
+            cssClass: 'exit-button',
             handler: deleteGoalHandler
           }
         ]}

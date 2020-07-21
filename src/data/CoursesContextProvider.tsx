@@ -6,13 +6,29 @@ const CoursesContextProvider: React.FC = props => {
     const [courses, setCourses] = useState<Course[]>([
         {
             id: 'c1',
-            title: 'Ionic + React - The Practical Guide',
-            enrolled: new Date('03/22/2019'),
+            title: 'Mountain camping trip',
+            enrolled: new Date('09/22/2020'),
             goals: [
-                { id: 'c1g1', text: 'Finish the course!  THIS IS SOOOO STUPID' },
-                { id: 'c1g2', text: 'Learn a lot!' },
-                { id: 'c1g3', text: 'Why is IONIC reload messed up???' },
-                { id: 'c1g4', text: 'More and MORE data!' }
+                { id: 'c1g1', text: 'Tent' },
+                { id: 'c1g2', text: 'sleeping bag' },
+                { id: 'c1g3', text: 'fire starter' },
+                { id: 'c1g4', text: 'Enough food for 3 days' },
+                { id: 'c1g5', text: 'warm clothes for night' },
+            ],
+            included: true,
+        },
+        {
+            id: 'c2',
+            title: 'Grocery shopping list',
+            enrolled: new Date('04/01/2020'),
+            goals: [
+                { id: 'c2g1', text: 'bread' },
+                { id: 'c2g2', text: 'milk' },
+                { id: 'c2g3', text: 'eggs' },
+                { id: 'c2g4', text: 'cereal' },
+                { id: 'c2g5', text: 'fish to grill' },
+                { id: 'c2g6', text: 'coffee' },
+                { id: 'c2g7', text: 'popcorn' },
             ],
             included: true,
         }

@@ -13,6 +13,7 @@ import {
 } from '@ionic/react';
 
 import CoursesContext from '../data/courses-context';
+import '../theme/custom.css';
 
 const AllGoals: React.FC = () => {
 
@@ -51,8 +52,8 @@ const AllGoals: React.FC = () => {
           {goals.map(goal => (
             <IonItem key={goal.id}>
               <IonLabel>
-                <h2>{goal.text}</h2>
-                <p>{goal.courseTitle}</p>
+                <h2 className="allListText">{goal.text}</h2>
+                <p>from: {goal.courseTitle}</p>
               </IonLabel>
             </IonItem>
           ))}
