@@ -42,7 +42,7 @@ const EditModal: React.FC<{
         <IonModal isOpen={props.show}>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>{props.editedGoal ? 'Edit' : 'Add'} Goal</IonTitle>
+                    <IonTitle>{props.editedGoal ? 'Edit' : 'Add'} Item</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
@@ -50,7 +50,7 @@ const EditModal: React.FC<{
                     <IonRow>
                         <IonCol>
                             <IonItem>
-                                <IonLabel position="floating">Your Goal</IonLabel>
+                                <IonLabel position="floating">Your Item</IonLabel>
                                 <IonInput type="text" value={props.editedGoal?.text} ref={textRef} />
                             </IonItem>
                         </IonCol>

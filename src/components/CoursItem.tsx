@@ -19,7 +19,7 @@ const CourseItem: React.FC<{
             <IonCardHeader>
                 <IonCardTitle>{props.title}</IonCardTitle>
                 <IonCardSubtitle>
-                    Enrolled on{' '}
+                    Date :{' '}
                     {props.enrolmentDate.toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: '2-digit',
@@ -34,7 +34,7 @@ const CourseItem: React.FC<{
                         color="secondary"
                         routerLink={`/courses/${props.id}`}
                     >
-                        View Course Goals
+                        View List items
                     </IonButton>
                 </div>
             </IonCardContent>

@@ -43,7 +43,7 @@ const AddCourseModal: React.FC<{
         <IonModal isOpen={props.show}>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Add Course</IonTitle>
+                    <IonTitle>Add List</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
@@ -59,7 +59,7 @@ const AddCourseModal: React.FC<{
                     <IonRow>
                         <IonCol>
                             <IonItem>
-                                <IonLabel>Enrolment date</IonLabel>
+                                <IonLabel>Date</IonLabel>
                                 <IonDatetime displayFormat="MM DD YY" ref={dateRef} />
                             </IonItem>
                         </IonCol>

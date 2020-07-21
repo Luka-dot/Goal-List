@@ -18,7 +18,7 @@ const SideDrawer: React.FC = () => {
         <IonMenu contentId="main">
         <IonHeader>
           <IonToolbar>
-            <IonTitle>Course Goals</IonTitle>
+            <IonTitle>List Items</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent>
@@ -26,7 +26,7 @@ const SideDrawer: React.FC = () => {
             <IonMenuToggle>
               <IonItem button routerLink="/courses/all-goals" routerDirection="none">
                 <IonIcon slot="start" icon={list} />
-                <IonLabel>All Goalsss</IonLabel>
+                <IonLabel>All Items</IonLabel>
               </IonItem>
             </IonMenuToggle>
             <IonMenuToggle>

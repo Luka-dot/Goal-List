@@ -89,7 +89,7 @@ const Courses: React.FC = () => {
             <IonPage>
                 <IonHeader>
                     <IonToolbar>
-                        <IonTitle>Courses</IonTitle>
+                        <IonTitle>Your List's</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
