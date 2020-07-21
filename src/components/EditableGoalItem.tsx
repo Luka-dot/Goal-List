@@ -14,7 +14,7 @@ const EditableGoalItem: React.FC<{
     onStartDelete: () => void;
     onStartEdit: (event: React.MouseEvent) => void;
     text: String;
-    onComplete: () => void;
+    onComplete: (event: React.MouseEvent) => void;
 }> = props => {
 
 

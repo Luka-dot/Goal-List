@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import CoursesContext, { Course, Goal } from './courses-context';
+import { text } from 'ionicons/icons';
 
 const CoursesContextProvider: React.FC = props => {
     const [courses, setCourses] = useState<Course[]>([
@@ -9,11 +10,11 @@ const CoursesContextProvider: React.FC = props => {
             title: 'Mountain camping trip',
             enrolled: new Date('09/22/2020'),
             goals: [
-                { id: 'c1g1', text: 'Tent' },
-                { id: 'c1g2', text: 'sleeping bag' },
-                { id: 'c1g3', text: 'fire starter' },
-                { id: 'c1g4', text: 'Enough food for 3 days' },
-                { id: 'c1g5', text: 'warm clothes for night' },
+                { id: 'c1g1', text: 'Tent', completed: false },
+                { id: 'c1g2', text: 'sleeping bag', completed: false },
+                { id: 'c1g3', text: 'fire starter', completed: false },
+                { id: 'c1g4', text: 'Enough food for 3 days', completed: false },
+                { id: 'c1g5', text: 'warm clothes for night', completed: false },
             ],
             included: true,
         },
@@ -22,13 +23,13 @@ const CoursesContextProvider: React.FC = props => {
             title: 'Grocery shopping list',
             enrolled: new Date('04/01/2020'),
             goals: [
-                { id: 'c2g1', text: 'bread' },
-                { id: 'c2g2', text: 'milk' },
-                { id: 'c2g3', text: 'eggs' },
-                { id: 'c2g4', text: 'cereal' },
-                { id: 'c2g5', text: 'fish to grill' },
-                { id: 'c2g6', text: 'coffee' },
-                { id: 'c2g7', text: 'popcorn' },
+                { id: 'c2g1', text: 'bread', completed: false },
+                { id: 'c2g2', text: 'milk', completed: false },
+                { id: 'c2g3', text: 'eggs', completed: false },
+                { id: 'c2g4', text: 'cereal', completed: false },
+                { id: 'c2g5', text: 'fish to grill', completed: false },
+                { id: 'c2g6', text: 'coffee', completed: false },
+                { id: 'c2g7', text: 'popcorn', completed: false },
             ],
             included: true,
         }
@@ -49,7 +50,7 @@ const CoursesContextProvider: React.FC = props => {
     };
 
     const addGoal = (courseId: string, text: string) => { 
-        const newGoal: Goal = {id: Math.random().toString(), text}
+        const newGoal: Goal = {id: Math.random().toString(), text, completed: false}
 
         setCourses(() => {
             // alot of copying here. this is to avoid mutating data in the memory that can possibly lead to issues.
@@ -76,6 +77,7 @@ const CoursesContextProvider: React.FC = props => {
      };
 
      const updateGoal = (courseId: string, goalId: string, newText: string) => {
+         console.log(goalId)
         setCourses(curCourses => {
           const updatedCourses = [...curCourses];
           const updatedCourseIndex = updatedCourses.findIndex(
@@ -90,6 +92,34 @@ const CoursesContextProvider: React.FC = props => {
           const updatedGoal = {
             ...updatedCourseGoals[updatedCourseGoalIndex],
             text: newText
+          };
+          updatedCourseGoals[updatedCourseGoalIndex] = updatedGoal;
+          const updatedCourse = { ...updatedCourses[updatedCourseIndex] };
+          updatedCourse.goals = updatedCourseGoals;
+          updatedCourses[updatedCourseIndex] = updatedCourse;
+          return updatedCourses;
+        });
+      };
+
+      const completeGoal = (courseId: string, goalId: string, completed: boolean) => {
+        setCourses(curCourses => {
+            console.log(courseId, goalId)
+          const updatedCourses = [...curCourses];
+          const updatedCourseIndex = updatedCourses.findIndex(
+            course => course.id === courseId
+          );
+          const updatedCourseGoals = updatedCourses[
+            updatedCourseIndex
+          ].goals.slice();
+          const updatedCourseGoalIndex = updatedCourseGoals.findIndex(
+            goal => goal.id === goalId
+          );
+          console.log(updatedCourseGoalIndex)
+          const completeValue = updatedCourseGoalIndex;
+          console.log(updatedCourseGoals, completeValue)
+          const updatedGoal = {
+            ...updatedCourseGoals[updatedCourseGoalIndex],
+            completed: !completed  
           };
           updatedCourseGoals[updatedCourseGoalIndex] = updatedGoal;
           const updatedCourse = { ...updatedCourses[updatedCourseIndex] };
@@ -119,7 +149,8 @@ const CoursesContextProvider: React.FC = props => {
                 addCourse: addCourse,
                 deleteGoal: deleteGoal,
                 updateGoal: updateGoal,
-                changeCourseFilter: changeCourseFilter
+                changeCourseFilter: changeCourseFilter,
+                completeGoal: completeGoal
             }}
         >
             {props.children}

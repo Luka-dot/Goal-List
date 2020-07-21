@@ -2,7 +2,8 @@ import React from 'react';
 
 export interface Goal { 
     id: string, 
-    text: string 
+    text: string,
+    completed: boolean
 }
 
 export interface Course {
@@ -20,6 +21,8 @@ interface Context {
     deleteGoal:(courseId: string, goalId: string) => void,
     updateGoal: (courseId: string, goalId: string, newText: string) => void,
     changeCourseFilter: (courseId: string, isIncluded: boolean) => void;
+    completeGoal: (courseId: string, goalId: string, completed: boolean) => void;
+    
     }
 
 const CoursesContext = React.createContext<Context>({
@@ -28,7 +31,9 @@ const CoursesContext = React.createContext<Context>({
     addGoal: () => {}, 
     deleteGoal:() => {},
     updateGoal: () => {},
-    changeCourseFilter: () => {}
+    changeCourseFilter: () => {},
+    completeGoal: () => {}
+    
 });
 
 export default CoursesContext;

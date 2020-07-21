@@ -22,6 +22,7 @@ import { addOutline } from 'ionicons/icons';
 import EditModal from '../components/EditModal';
 import EditableGoalItem from '../components/EditableGoalItem';
 import CoursesContext from '../data/courses-context';
+import Courses from './Courses';
 //import '../theme/custom.css';
 
 const CourseGoals: React.FC = () => {
@@ -29,6 +30,7 @@ const CourseGoals: React.FC = () => {
   const [toastMessage, setToastMessage] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [selectedGoal, setSelectedGoal] = useState(Object);
+  const [ completed, setCompleted ] = useState(false);
 
   const coursesCtx = useContext(CoursesContext);
 
@@ -60,11 +62,21 @@ const CourseGoals: React.FC = () => {
     }
     setIsEditing(true);
     setSelectedGoal(goal);
+    
   };
 
-  const markCompleteHandler = (goalId: string) => {
-    selectedGoalIdRef.current = goalId;
-    console.log('completed...' + goalId)
+  const markCompleteHandler = (goalId: string, event: React.MouseEvent) => {
+    console.log(goalId);
+    coursesCtx.completeGoal(selectedCourseId, goalId, completed);
+     const goal = selectedCourse?.goals.find(g => g.id === goalId);
+    // selectedGoalIdRef.current = goalId;
+    // // if (completed === false) {
+    // //   setCompleted(true)
+    // // } else {
+    // //   setCompleted(false)
+    // // }
+    // setSelectedGoal(goal);
+    console.log('completed...' + goalId + " " + goal?.completed)
 };
 
   const cancelEditGoalHandler = () => {
