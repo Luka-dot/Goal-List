@@ -23,14 +23,14 @@ const EditModal: React.FC<{
     // if its a null => ADDING a goal. if its ID + TEXT => EDITING goal
     editedGoal: { id: string; text: string } | null;
 }> = props => {
-    const [ error, setError ] = useState('');
+    const [error, setError] = useState('');
 
     const textRef = useRef<HTMLIonInputElement>(null);
 
     const saveHandler = () => {
         const enteredtext = textRef.current!.value;
 
-        if (!enteredtext || enteredtext.toString().trim().length === 0 ) {
+        if (!enteredtext || enteredtext.toString().trim().length === 0) {
             setError('Please enter valid text.')
             return;
         };
@@ -55,23 +55,23 @@ const EditModal: React.FC<{
                             </IonItem>
                         </IonCol>
                     </IonRow>
-                        {error && <IonRow>
-                            <IonCol>
-                                <IonText color="danger">
-                                    <p>{error}</p>
-                                </IonText>
-                            </IonCol>
-                            </IonRow>}
+                    {error && <IonRow>
+                        <IonCol>
+                            <IonText color="danger">
+                                <p>{error}</p>
+                            </IonText>
+                        </IonCol>
+                    </IonRow>}
                     <IonRow className="ion-text-center">
                         <IonCol>
                             <IonButton color="dark" fill="clear" onClick={props.onCancel}>
                                 Cancel
-              </IonButton>
+                    </IonButton>
                         </IonCol>
                         <IonCol>
                             <IonButton color="secondary" expand="block" onClick={saveHandler} >
                                 Save
-              </IonButton>
+                    </IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>

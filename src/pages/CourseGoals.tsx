@@ -19,10 +19,8 @@ import {
 import { useParams } from 'react-router-dom';
 import { addOutline } from 'ionicons/icons';
 
-import { COURSE_DATA } from './Courses';
 import EditModal from '../components/EditModal';
 import EditableGoalItem from '../components/EditableGoalItem';
-import CourseContext from '../data/courses-context';
 import CoursesContext from '../data/courses-context';
 
 const CourseGoals: React.FC = () => {
