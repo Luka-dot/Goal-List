@@ -66,9 +66,10 @@ const CourseGoals: React.FC = () => {
   };
 
   const markCompleteHandler = (goalId: string, event: React.MouseEvent) => {
-    console.log(goalId);
+    
     coursesCtx.completeGoal(selectedCourseId, goalId, completed);
      const goal = selectedCourse?.goals.find(g => g.id === goalId);
+     setCompleted((completed) ? false : true);
     // selectedGoalIdRef.current = goalId;
     // // if (completed === false) {
     // //   setCompleted(true)
@@ -76,7 +77,7 @@ const CourseGoals: React.FC = () => {
     // //   setCompleted(false)
     // // }
     // setSelectedGoal(goal);
-    console.log('completed...' + goalId + " " + goal?.completed)
+    console.log('clicked completed...  ' + goalId + " " + goal?.completed)
 };
 
   const cancelEditGoalHandler = () => {
@@ -110,7 +111,7 @@ const CourseGoals: React.FC = () => {
       <EditableGoalItem 
         key={goal.id}
         slidingRef={slidingOptionsRef} 
-        text={goal.text}  
+        text={goal.text} 
         onStartDelete={startDeleteGoalHandler.bind(null, goal.id)}
         onStartEdit={startEditGoalHandler.bind(null, goal.id)}
         onComplete={markCompleteHandler.bind(null, goal.id)}

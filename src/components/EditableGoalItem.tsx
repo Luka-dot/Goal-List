@@ -33,6 +33,7 @@ const EditableGoalItem: React.FC<{
                 // button
                 onClick={props.onComplete}
             >
+                {/* EDIT HERE FOR visual marking of the competed goal  */}
                 <IonLabel>{props.text}</IonLabel>
                 {/* <IonButton
                   fill="clear"
