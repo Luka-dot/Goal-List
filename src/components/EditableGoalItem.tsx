@@ -6,14 +6,18 @@ import {
     IonItemSliding,
     IonItemOptions,
     IonItemOption,
+    IonText,
 } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
+import { getClassName } from '@ionic/react/dist/types/components/utils';
+import './EditableGoal.css';
 
 const EditableGoalItem: React.FC<{
     slidingRef: React.Ref<HTMLIonItemSlidingElement>;
     onStartDelete: () => void;
     onStartEdit: (event: React.MouseEvent) => void;
     text: String;
+    completed: boolean;
     onComplete: (event: React.MouseEvent) => void;
 }> = props => {
 
@@ -34,16 +38,13 @@ const EditableGoalItem: React.FC<{
                 onClick={props.onComplete}
             >
                 {/* EDIT HERE FOR visual marking of the competed goal  */}
-                <IonLabel>{props.text}</IonLabel>
-                {/* <IonButton
-                  fill="clear"
-                  color="dark"
-                  slot="end"
-                  onClick={startEditGoalHandler}
-                >
-                  <IonIcon slot="icon-only" icon={create} />
-                </IonButton> */}
-            </IonItem>
+                {props.completed === true &&
+                <IonLabel className="completed" ><IonText  color="success">{props.text}</IonText></IonLabel>
+                }
+                {props.completed === false &&
+                <IonLabel ><IonText >{props.text}</IonText></IonLabel>
+                }
+            </IonItem> 
             <IonItemOptions side="end">
                 <IonItemOption
                     onClick={props.onStartEdit}

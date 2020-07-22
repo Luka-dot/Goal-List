@@ -111,7 +111,8 @@ const CourseGoals: React.FC = () => {
       <EditableGoalItem 
         key={goal.id}
         slidingRef={slidingOptionsRef} 
-        text={goal.text} 
+        text={goal.text}
+        completed={goal.completed} 
         onStartDelete={startDeleteGoalHandler.bind(null, goal.id)}
         onStartEdit={startEditGoalHandler.bind(null, goal.id)}
         onComplete={markCompleteHandler.bind(null, goal.id)}
