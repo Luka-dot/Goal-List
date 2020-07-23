@@ -14,6 +14,7 @@ import {
 
 import CoursesContext from '../data/courses-context';
 import '../theme/custom.css';
+import '../components/EditableGoal.css';
 
 const AllGoals: React.FC = () => {
 
@@ -23,7 +24,7 @@ const AllGoals: React.FC = () => {
     return course.included;
   }).map( course => {
     return course.goals.map(goal => {
-      return { id: goal.id, text: goal.text, courseTitle: course.title };
+      return { id: goal.id, text: goal.text, courseTitle: course.title, completed: goal.completed };
     });
   }).reduce((goalArr, nestedGoals) => {
     let updatedGoalArray = goalArr;
@@ -51,10 +52,18 @@ const AllGoals: React.FC = () => {
         <IonList>
           {goals.map(goal => (
             <IonItem key={goal.id}>
+              {goal.completed === true &&
+              <IonLabel className="completed" >
+                <h2 className="allListText">{goal.text}</h2>
+                <p>from: {goal.courseTitle}</p>
+              </IonLabel>
+              }
+              {goal.completed === false &&
               <IonLabel>
                 <h2 className="allListText">{goal.text}</h2>
                 <p>from: {goal.courseTitle}</p>
               </IonLabel>
+              }
             </IonItem>
           ))}
         </IonList>

@@ -31,12 +31,12 @@ const CourseTabs: React.FC = () => {
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
         <IonTabButton tab="all-goals" href="/courses/all-goals">
-          <IonIcon icon={list} />
+          <IonIcon  icon={list} />
           <IonLabel>All Items</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="courses" href="/courses/list">
+        <IonTabButton  tab="courses" href="/courses/list">
           <IonIcon icon={trophyOutline} />
-          <IonLabel>List's</IonLabel>
+          <IonLabel >List's</IonLabel>
         </IonTabButton>
       </IonTabBar>
     </IonTabs>

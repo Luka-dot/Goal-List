@@ -9,7 +9,6 @@ import {
     IonText,
 } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
-import { getClassName } from '@ionic/react/dist/types/components/utils';
 import './EditableGoal.css';
 
 const EditableGoalItem: React.FC<{
@@ -42,7 +41,7 @@ const EditableGoalItem: React.FC<{
                 <IonLabel className="completed" ><IonText  color="success">{props.text}</IonText></IonLabel>
                 }
                 {props.completed === false &&
-                <IonLabel ><IonText >{props.text}</IonText></IonLabel>
+                <IonLabel className="textBefore" ><IonText >{props.text}</IonText></IonLabel>
                 }
             </IonItem> 
             <IonItemOptions side="end">
