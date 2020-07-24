@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import CoursesContext, { Course, Goal } from './courses-context';
-import { text } from 'ionicons/icons';
+
 
 const CoursesContextProvider: React.FC = props => {
     const [courses, setCourses] = useState<Course[]>([
