@@ -14,15 +14,21 @@ import {
   IonFabButton,
   isPlatform,
   IonAlert,
-  IonToast
+  IonToast,
+  IonRow,
+  IonCol,
+  IonItem,
+  IonTextarea,
+  IonInput
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
-import { addOutline } from 'ionicons/icons';
+import { addOutline, chevronForwardCircleOutline } from 'ionicons/icons';
 
 import EditModal from '../components/EditModal';
 import EditableGoalItem from '../components/EditableGoalItem';
 import CoursesContext from '../data/courses-context';
 import Courses from './Courses';
+import { isNull } from 'util';
 //import '../theme/custom.css';
 
 const CourseGoals: React.FC = () => {
@@ -36,6 +42,8 @@ const CourseGoals: React.FC = () => {
 
   const slidingOptionsRef= useRef<HTMLIonItemSlidingElement>(null);
   const selectedGoalIdRef = useRef<string | null>(null);
+
+  let textRef = useRef<HTMLIonInputElement | null>(null);
 
   const selectedCourseId = useParams<{ courseId: string }>().courseId;
 
@@ -89,6 +97,14 @@ const CourseGoals: React.FC = () => {
     setIsEditing(true);
     setSelectedGoal(null);
   };
+
+  const quickAddGoalHandler = () => {
+    let newText = textRef.current!.value;
+    let anotherText = newText!.toString();
+    console.log('anotherText ', anotherText);
+    coursesCtx.addGoal(selectedCourseId, anotherText);
+    textRef.current!.value = '';
+  }
 
   const saveGoalHandler = (text: string) => {
     if (selectedGoal) {
@@ -183,6 +199,16 @@ const CourseGoals: React.FC = () => {
             </IonFab>
           )}
         </IonContent>
+        <IonRow>
+          <IonCol>
+            <IonItem>
+              <IonInput type="text" ref={textRef} />
+              <IonFabButton color="secondary" onClick={quickAddGoalHandler} >
+                <IonIcon icon={chevronForwardCircleOutline} ></IonIcon>
+              </IonFabButton>
+            </IonItem>
+          </IonCol>
+        </IonRow>
       </IonPage>
     </React.Fragment>
   );

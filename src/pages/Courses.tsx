@@ -10,50 +10,16 @@ import {
     IonCol,
     IonFab,
     IonFabButton,
-    IonIcon
+    IonIcon,
+    IonItem,
+    IonTextarea
 } from '@ionic/react';
-import { addOutline } from 'ionicons/icons';
+import { addOutline, chevronForwardCircleOutline } from 'ionicons/icons';
 // import { useHistory } from 'react-router-dom';
 
 import AddCourseModal from '../components/CourseModal';
 import CoursItem from '../components/CoursItem';
 import CoursesContext from '../data/courses-context';
-
-export const COURSE_DATA = [
-    {
-        id: 'c1',
-        title: 'Ionic + React - The Practical Guide',
-        enrolled: new Date('03/22/2019'),
-        goals: [
-            { id: 'c1g1', text: 'Finish the course!  THIS IS SOOOO STUPID' },
-            { id: 'c1g2', text: 'Learn a lot!' },
-            { id: 'c1g3', text: 'Why is IONIC reload messed up???' },
-            { id: 'c1g4', text: 'More and MORE data!' }
-        ]
-    },
-    {
-        id: 'c2',
-        title: 'React.js - The Complete Guide',
-        enrolled: new Date('05/15/2018'),
-        goals: [
-            { id: 'c2g1', text: 'Finish the course!' },
-            { id: 'c2g2', text: 'Learn a lot!' },
-            { id: 'c2g3', text: 'Why is IONIC reload messed up???' },
-            { id: 'c2g4', text: 'More and MORE data!' }
-        ]
-    },
-    {
-        id: 'c3',
-        title: 'JavaScript - The Complete Guide',
-        enrolled: new Date('01/22/2020'),
-        goals: [
-            { id: 'c3g1', text: 'Finish the course!' },
-            { id: 'c3g2', text: 'Learn a lot!' },
-            { id: 'c3g3', text: 'Why is IONIC reload messed up???' },
-            { id: 'c3g4', text: 'More and MORE data!!!' }
-        ]
-    }
-];
 
 const Courses: React.FC = () => {
     // const history = useHistory();
@@ -105,7 +71,7 @@ const Courses: React.FC = () => {
                                 </IonCol>
                             </IonRow>
                         ))}
-                    </IonGrid>
+                    </IonGrid>                    
                 </IonContent>
                 <IonFab horizontal="end" vertical="bottom">
                     <IonFabButton color="secondary" >
