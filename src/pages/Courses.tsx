@@ -14,7 +14,7 @@ import {
     IonItem,
     IonTextarea
 } from '@ionic/react';
-import { addOutline, chevronForwardCircleOutline } from 'ionicons/icons';
+import { addOutline } from 'ionicons/icons';
 // import { useHistory } from 'react-router-dom';
 
 import AddCourseModal from '../components/CourseModal';
