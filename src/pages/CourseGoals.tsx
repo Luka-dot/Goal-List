@@ -191,13 +191,13 @@ const CourseGoals: React.FC = () => {
         </IonHeader>
         <IonContent >
           {content}
-          {isPlatform('android') && (
+          {/* {isPlatform('android') && (
             <IonFab horizontal="end" vertical="bottom">
               <IonFabButton color="secondary" onClick={startAddGoalHandler}>
                 <IonIcon icon={addOutline} />
               </IonFabButton>
             </IonFab>
-          )}
+          )} */}
         </IonContent>
         <IonRow>
           <IonCol>
