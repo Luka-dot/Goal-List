@@ -9,7 +9,9 @@ import {
   IonMenuButton,
   IonList,
   IonLabel,
-  IonItem
+  IonItem,
+  IonText,
+  IonTextarea
 } from '@ionic/react';
 
 import CoursesContext from '../data/courses-context';
@@ -54,14 +56,14 @@ const AllGoals: React.FC = () => {
             <IonItem key={goal.id}>
               {goal.completed === true &&
               <IonLabel className="completed" >
-                <h2 className="allListText">{goal.text}</h2>
-                <p>from: {goal.courseTitle}</p>
+                <h2 className="textBefore">{goal.text}</h2>
+                <p>from list: {goal.courseTitle}</p>
               </IonLabel>
               }
               {goal.completed === false &&
               <IonLabel>
-                <h2 className="allListText">{goal.text}</h2>
-                <p>from: {goal.courseTitle}</p>
+                <IonText className="allListText">{goal.text}</IonText>
+                <p className="smallerText">from list: <IonText className="middleText">{goal.courseTitle}</IonText></p>
               </IonLabel>
               }
             </IonItem>

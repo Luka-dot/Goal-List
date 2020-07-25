@@ -1,9 +1,24 @@
 .completed {
-    text-decoration: line-through ;
-    
+    text-decoration: line-through ;   
 }
 
 .textBefore {
     font-weight: bold;
+    font-family: cursive;
+}
 
+.allListText {
+    color: darkviolet;
+    font-weight: 700;
+    font-family: cursive;
+}
+
+.smallerText {
+    font-family: cursive;
+}
+
+.middleText {
+    font-family: cursive;
+    color: black;
+    font-weight: 800;
 }
