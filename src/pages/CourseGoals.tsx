@@ -22,14 +22,11 @@ import {
   IonInput
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
-import { addOutline, chevronForwardCircleOutline, arrowForward } from 'ionicons/icons';
+import { addOutline, arrowForward } from 'ionicons/icons';
 
 import EditModal from '../components/EditModal';
 import EditableGoalItem from '../components/EditableGoalItem';
 import CoursesContext from '../data/courses-context';
-import Courses from './Courses';
-import { isNull } from 'util';
-//import '../theme/custom.css';
 import './items.css';
 
 const CourseGoals: React.FC = () => {
