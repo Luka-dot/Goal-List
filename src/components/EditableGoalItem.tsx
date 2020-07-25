@@ -7,6 +7,7 @@ import {
     IonItemOptions,
     IonItemOption,
     IonText,
+    IonCheckbox,
 } from '@ionic/react';
 import { create, trash } from 'ionicons/icons';
 import './EditableGoal.css';
@@ -38,10 +39,16 @@ const EditableGoalItem: React.FC<{
             >
                 {/* EDIT HERE FOR visual marking of the competed goal  */}
                 {props.completed === true &&
-                <IonLabel className="completed" ><IonText  color="success">{props.text}</IonText></IonLabel>
+                <IonItem>
+                <IonLabel className="completed" ><IonText >{props.text}</IonText></IonLabel>
+                <IonCheckbox color="primary" checked slot="start"></IonCheckbox>
+                </IonItem>
                 }
                 {props.completed === false &&
+                <IonItem>
                 <IonLabel className="textBefore" ><IonText >{props.text}</IonText></IonLabel>
+                <IonCheckbox color="primary"  slot="start"></IonCheckbox>
+                </IonItem>
                 }
             </IonItem> 
             <IonItemOptions side="end">
