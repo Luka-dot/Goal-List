@@ -39,18 +39,18 @@ const EditableGoalItem: React.FC<{
             >
                 {/* EDIT HERE FOR visual marking of the competed goal  */}
                 {props.completed === true &&
-                <IonItem>
-                <IonLabel className="completed" ><IonText >{props.text}</IonText></IonLabel>
-                <IonCheckbox color="primary" checked slot="start"></IonCheckbox>
-                </IonItem>
+                    <IonItem>
+                        <IonLabel className="completed" ><IonText >{props.text}</IonText></IonLabel>
+                        <IonCheckbox color="primary" checked slot="start"></IonCheckbox>
+                    </IonItem>
                 }
                 {props.completed === false &&
-                <IonItem>
-                <IonLabel className="textBefore" ><IonText >{props.text}</IonText></IonLabel>
-                <IonCheckbox color="primary"  slot="start"></IonCheckbox>
-                </IonItem>
+                    <IonItem>
+                        <IonLabel className="textBefore" ><IonText >{props.text}</IonText></IonLabel>
+                        <IonCheckbox color="primary" slot="start"></IonCheckbox>
+                    </IonItem>
                 }
-            </IonItem> 
+            </IonItem>
             <IonItemOptions side="end">
                 <IonItemOption
                     onClick={props.onStartEdit}
