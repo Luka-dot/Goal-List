@@ -43,7 +43,7 @@ const CourseGoals: React.FC = () => {
   const slidingOptionsRef= useRef<HTMLIonItemSlidingElement>(null);
   const selectedGoalIdRef = useRef<string | null>(null);
 
-  let textRef = useRef<HTMLIonInputElement | null>(null);
+  const textRef = useRef<HTMLIonInputElement | null>(null);
 
   const selectedCourseId = useParams<{ courseId: string }>().courseId;
 
