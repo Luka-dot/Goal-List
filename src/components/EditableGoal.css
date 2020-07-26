@@ -27,3 +27,26 @@
     display:inline-block;
     width: 100%;
 }
+
+.dateModal {
+    color: darkred;
+}
+
+.picker-md .picker-prefix,
+.picker-md .picker-suffix,
+.picker-md .picker-opt.picker-opt-selected {
+color: #fff;
+font-family: Montserrat-Medium;
+border-radius: 10px;
+background-color: #817bd5;
+box-shadow: 0 1px rgba(255,255,255,0.2),
+0 -0px 1px rgba(236, 236, 236, 0.4),
+0 1.5px 2px rgba(255, 255, 255, 0.5);
+}
+
+.picker-md .picker-wrapper {
+color: #fff;
+font-family: Montserrat-Regular;
+background-color: rgba(0, 0, 0, 0.294);
+color: #ffd82f;
+}

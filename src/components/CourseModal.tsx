@@ -16,6 +16,7 @@ import {
     IonText
 } from '@ionic/react';
 
+
 const AddCourseModal: React.FC<{
     show: boolean;
     onCancel: () => void;
@@ -58,7 +59,7 @@ const AddCourseModal: React.FC<{
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonItem>
+                            <IonItem >
                                 <IonLabel>Date</IonLabel>
                                 <IonDatetime displayFormat="MM DD YY" ref={dateRef} />
                             </IonItem>

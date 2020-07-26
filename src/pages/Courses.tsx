@@ -12,8 +12,10 @@ import {
     IonFabButton,
     IonIcon,
     IonItem,
+    IonAlert
 } from '@ionic/react';
 import { addOutline } from 'ionicons/icons';
+import { useParams } from 'react-router-dom';
 
 import AddCourseModal from '../components/CourseModal';
 import CoursItem from '../components/CoursItem';
@@ -22,8 +24,12 @@ import CoursesContext from '../data/courses-context';
 const Courses: React.FC = () => {
 
     const [addingCourse, setAddingCourse] = useState(false);
+    const [startedDeleting, setStartedDeleting] = useState(false);
 
     const coursesCtx = useContext(CoursesContext);
+
+    const selectedCourseId = useParams<{ courseId: string }>().courseId;
+    const selectedCourse = coursesCtx.courses.find(c => c.id === selectedCourseId);
 
     const startAddCourseHandler = () => {
         setAddingCourse(true);
@@ -39,11 +45,41 @@ const Courses: React.FC = () => {
     };
 
     const courseDeleteHandler = (courseId: string) => {
+        console.log('inside courseDelete ', courseId)
+        // setStartedDeleting(true);
         coursesCtx.onListDelete(courseId);
+    };
+
+    const startDeleteHandler = (courseId: string) => {
+        const selectedCourseId = courseId
+        setStartedDeleting(true);
+        console.log('inside startDel ', courseId)
+        // courseDeleteHandler(courseId)
     };
 
     return (
         <React.Fragment>
+            <IonAlert
+                isOpen={startedDeleting}
+                header="Are you sure?"
+                message="Do you want to delete the goal? This cannot be undone."
+                cssClass='buttonCss'
+                buttons={[
+                {
+                    text: 'No',
+                    role: 'cancel',
+                    cssClass: 'cancel-button',
+                    handler: () => {
+                    setStartedDeleting(false);
+                    }
+                },
+                {
+                    text: 'Yes',
+                    cssClass: 'exit-button',
+                    handler: () => {courseDeleteHandler(selectedCourseId)}
+                }
+        ]}
+      />
             <AddCourseModal
                 show={addingCourse}
                 onCancel={cancelAddCourse}
@@ -66,6 +102,7 @@ const Courses: React.FC = () => {
                                         enrolmentDate={course.enrolled}
                                         id={course.id}
                                         onListDelete={courseDeleteHandler.bind(null, course.id)}
+                                   
                                     />
                                 </IonCol>
                             </IonRow>
