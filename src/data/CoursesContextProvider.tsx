@@ -150,7 +150,8 @@ const CoursesContextProvider: React.FC = props => {
                 deleteGoal: deleteGoal,
                 updateGoal: updateGoal,
                 changeCourseFilter: changeCourseFilter,
-                completeGoal: completeGoal
+                completeGoal: completeGoal,
+                
             }}
         >
             {props.children}

@@ -7,3 +7,15 @@
     border-top: none;
     border-left: none;
 }
+
+.allListText2 {
+    color: darkviolet;
+    font-weight: 800;
+    font-family: cursive;
+}
+
+.middleText2 {
+    color: rgb(9, 47, 153);
+    font-weight: 500;
+    font-family: cursive;
+}

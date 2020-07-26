@@ -17,6 +17,7 @@ import {
 import CoursesContext from '../data/courses-context';
 import '../theme/custom.css';
 import '../components/EditableGoal.css';
+import './items.css';
 
 const AllGoals: React.FC = () => {
 
@@ -62,8 +63,8 @@ const AllGoals: React.FC = () => {
               }
               {goal.completed === false &&
               <IonLabel>
-                <IonText className="allListText">{goal.text}</IonText>
-                <p className="smallerText">from list: <IonText className="middleText">{goal.courseTitle}</IonText></p>
+                <IonText className="allListText2" >{goal.text}</IonText>
+                <p className="smallerText">from list: <IonText className="middleText2">{goal.courseTitle}</IonText></p>
               </IonLabel>
               }
             </IonItem>

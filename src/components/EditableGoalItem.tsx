@@ -40,7 +40,7 @@ const EditableGoalItem: React.FC<{
                 {/* EDIT HERE FOR visual marking of the competed goal  */}
                 {props.completed === true &&
                     <IonItem>
-                        <IonLabel className="completed" ><IonText >{props.text}</IonText></IonLabel>
+                        <IonLabel className="completed" ><IonText>{props.text}</IonText></IonLabel>
                         <IonCheckbox color="primary" checked slot="start"></IonCheckbox>
                     </IonItem>
                 }

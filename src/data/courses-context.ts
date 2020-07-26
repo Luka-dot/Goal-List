@@ -22,7 +22,7 @@ interface Context {
     updateGoal: (courseId: string, goalId: string, newText: string) => void,
     changeCourseFilter: (courseId: string, isIncluded: boolean) => void;
     completeGoal: (courseId: string, goalId: string, completed: boolean) => void;
-    
+    // onDeleteList: (courseId: string) => void;
     }
 
 const CoursesContext = React.createContext<Context>({
@@ -32,7 +32,8 @@ const CoursesContext = React.createContext<Context>({
     deleteGoal:() => {},
     updateGoal: () => {},
     changeCourseFilter: () => {},
-    completeGoal: () => {}
+    completeGoal: () => {},
+    // onDeleteList: () => {}
     
 });
 

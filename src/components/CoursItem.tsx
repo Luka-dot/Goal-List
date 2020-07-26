@@ -35,23 +35,23 @@ const CourseItem: React.FC<{
                 </IonCardSubtitle>
             </IonCardHeader>
             <IonCardContent id="listCol">
-                <IonRow > 
+                <IonRow >
                     <IonCol>
-                    <IonItem className="ion-text-left">
-                    <IonIcon icon={trash} ><IonButton></IonButton></IonIcon>
-                    </IonItem>
+                        <IonItem className="ion-text-left">
+                            <IonIcon icon={trash}  ><IonButton></IonButton></IonIcon>
+                        </IonItem>
                     </IonCol>
                     <IonCol>
-                    <IonItem className="ion-text-right">
-                    <IonButton
-                        fill="clear"
-                        color="secondary"
-                        routerLink={`/courses/${props.id}`}
-                    >
-                        View List items
+                        <IonItem className="ion-text-right">
+                            <IonButton
+                                fill="clear"
+                                color="secondary"
+                                routerLink={`/courses/${props.id}`}
+                            >
+                                View List items
                     </IonButton>
-                    </IonItem>  
-                    </IonCol> 
+                        </IonItem>
+                    </IonCol>
                 </IonRow>
             </IonCardContent>
         </IonCard>
