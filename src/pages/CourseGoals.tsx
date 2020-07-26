@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, KeyboardEvent  } from 'react';
+import React, { useState, useRef, useContext, KeyboardEvent } from 'react';
 import {
   IonHeader,
   IonToolbar,
@@ -34,11 +34,11 @@ const CourseGoals: React.FC = () => {
   const [toastMessage, setToastMessage] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [selectedGoal, setSelectedGoal] = useState(Object);
-  const [ completed, setCompleted ] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
   const coursesCtx = useContext(CoursesContext);
 
-  const slidingOptionsRef= useRef<HTMLIonItemSlidingElement>(null);
+  const slidingOptionsRef = useRef<HTMLIonItemSlidingElement>(null);
   const selectedGoalIdRef = useRef<string | null>(null);
 
   const textRef = useRef<HTMLIonInputElement | null>(null);
@@ -68,11 +68,11 @@ const CourseGoals: React.FC = () => {
     }
     setIsEditing(true);
     setSelectedGoal(goal);
-    
+
   };
 
   const markCompleteHandler = (goalId: string, event: React.MouseEvent) => {
-    
+
     coursesCtx.completeGoal(selectedCourseId, goalId, completed);
     const goal = selectedCourse?.goals.find(g => g.id === goalId);
     setCompleted((completed) ? false : true);
@@ -84,7 +84,7 @@ const CourseGoals: React.FC = () => {
     // // }
     // setSelectedGoal(goal);
     console.log('clicked completed...  ' + goalId + " " + goal?.completed)
-};
+  };
 
   const cancelEditGoalHandler = () => {
     setIsEditing(false);
@@ -108,7 +108,7 @@ const CourseGoals: React.FC = () => {
     if (selectedGoal) {
       coursesCtx.updateGoal(selectedCourseId, selectedGoal.id, text);
     } else {
-    coursesCtx.addGoal(selectedCourseId, text);
+      coursesCtx.addGoal(selectedCourseId, text);
     }
     setIsEditing(false);
   };
@@ -122,17 +122,17 @@ const CourseGoals: React.FC = () => {
   if (selectedCourse && selectedCourse.goals.length > 0) {
     content = <IonList>
       {selectedCourse.goals.map(goal => (
-      <EditableGoalItem 
-        key={goal.id}
-        slidingRef={slidingOptionsRef} 
-        text={goal.text}
-        completed={goal.completed} 
-        onStartDelete={startDeleteGoalHandler.bind(null, goal.id)}
-        onStartEdit={startEditGoalHandler.bind(null, goal.id)}
-        onComplete={markCompleteHandler.bind(null, goal.id)}
-      />
+        <EditableGoalItem
+          key={goal.id}
+          slidingRef={slidingOptionsRef}
+          text={goal.text}
+          completed={goal.completed}
+          onStartDelete={startDeleteGoalHandler.bind(null, goal.id)}
+          onStartEdit={startEditGoalHandler.bind(null, goal.id)}
+          onComplete={markCompleteHandler.bind(null, goal.id)}
+        />
       ))}
-      </IonList>
+    </IonList>
   }
 
   return (

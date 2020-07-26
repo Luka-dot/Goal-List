@@ -24,7 +24,7 @@ const AllGoals: React.FC = () => {
 
   const goals = coursesCtx.courses.filter(course => {
     return course.included;
-  }).map( course => {
+  }).map(course => {
     return course.goals.map(goal => {
       return { id: goal.id, text: goal.text, courseTitle: course.title, completed: goal.completed };
     });
@@ -51,24 +51,24 @@ const AllGoals: React.FC = () => {
       <IonContent>
         {goals.length === 0 && <h2 className="ion-text-center">No items found!</h2>}
         {goals.length > 0 && (
-        <IonList>
-          {goals.map(goal => (
-            <IonItem key={goal.id}>
-              {goal.completed === true &&
-              <IonLabel className="completed" >
-                <h2 className="textBefore">{goal.text}</h2>
-                <p>from list: {goal.courseTitle}</p>
-              </IonLabel>
-              }
-              {goal.completed === false &&
-              <IonLabel>
-                <IonText className="allListText2" >{goal.text}</IonText>
-                <p className="smallerText">from list: <IonText className="middleText2">{goal.courseTitle}</IonText></p>
-              </IonLabel>
-              }
-            </IonItem>
-          ))}
-        </IonList>
+          <IonList>
+            {goals.map(goal => (
+              <IonItem key={goal.id}>
+                {goal.completed === true &&
+                  <IonLabel className="completed" >
+                    <h2 className="textBefore">{goal.text}</h2>
+                    <p>from list: {goal.courseTitle}</p>
+                  </IonLabel>
+                }
+                {goal.completed === false &&
+                  <IonLabel>
+                    <IonText className="allListText2" >{goal.text}</IonText>
+                    <p className="smallerText">from list: <IonText className="middleText2">{goal.courseTitle}</IonText></p>
+                  </IonLabel>
+                }
+              </IonItem>
+            ))}
+          </IonList>
         )}
       </IonContent>
     </IonPage>
