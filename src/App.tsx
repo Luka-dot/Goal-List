@@ -36,11 +36,11 @@ import './theme/theme.css';
 const App: React.FC = () => {
   const coursesCtx = useContext(CourseContext);
 
-  const { initContext } = coursesCtx
+ // const { initContext } = coursesCtx
 
   useEffect (() => {
-    initContext()
-  }, [initContext]);
+    coursesCtx.initContext()
+  }, []);
 
   return (
   <IonApp>

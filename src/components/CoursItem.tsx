@@ -13,7 +13,7 @@ import {
 } from '@ionic/react';
 
 import './EditableGoal.css';
-import { addOutline, trash } from 'ionicons/icons';
+import { addOutline, trash, options } from 'ionicons/icons';
 
 const CourseItem: React.FC<{
     title: string;
@@ -28,11 +28,14 @@ const CourseItem: React.FC<{
                 <IonCardTitle>{props.title}</IonCardTitle>
                 <IonCardSubtitle>
                     Date :{' '}
-                    {props.enrolmentDate.toLocaleDateString('en-US', {
+                    {props.enrolmentDate.toString().slice(0, 10)}
+
+                    {/* .toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: '2-digit',
                         day: '2-digit'
-                    })}
+                    }) */}
+
                 </IonCardSubtitle>
             </IonCardHeader>
             <IonCardContent id="listCol">

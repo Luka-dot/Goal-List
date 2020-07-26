@@ -11,7 +11,7 @@ const CoursesContextProvider: React.FC = props => {
     ]);
 
     useEffect(() => {
-      Storage.set({key: 'Courses', value: JSON.stringify(courses) })
+      Storage.set({key: 'TEST', value: JSON.stringify(courses) })
     }, [courses]);
 
     const addCourse = (title: string, date: Date) => {
@@ -135,7 +135,7 @@ const CoursesContextProvider: React.FC = props => {
       };
 
       const initContext = useCallback(async () => {
-        const coursesData = await Storage.get({key: 'courses'});
+        const coursesData = await Storage.get({key: 'TEST'});
         const storedCourses = coursesData.value ? JSON.parse(coursesData.value) : [{
           id: 'c1',
           title: 'Example of the list',
@@ -147,6 +147,7 @@ const CoursesContextProvider: React.FC = props => {
           ],
           included: true,
         }];
+        console.log(storedCourses)
         setCourses(storedCourses);
       }, []);
 
