@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Plugins } from '@capacitor/core';
 
 import CoursesContext, { Course, Goal } from './courses-context';
 
+const { Storage } = Plugins;
 
 const CoursesContextProvider: React.FC = props => {
     const [courses, setCourses] = useState<Course[]>([
@@ -35,6 +37,10 @@ const CoursesContextProvider: React.FC = props => {
         }
     ]);
 
+    useEffect(() => {
+      Storage.set({key: 'Courses', value: JSON.stringify(courses) })
+    }, [courses]);
+
     const addCourse = (title: string, date: Date) => {
         const newCourse: Course = {
             id: Math.random().toString(),
@@ -47,6 +53,8 @@ const CoursesContextProvider: React.FC = props => {
         setCourses((curCourses) => {
             return curCourses.concat(newCourse);
         });
+
+      //  Storage.set({key: 'Courses', value: JSON.stringify(courses) })
     };
 
     const addGoal = (courseId: string, text: string) => { 
@@ -152,6 +160,8 @@ const CoursesContextProvider: React.FC = props => {
             return updatedCourses;
         })
       };
+
+      const initContext = () => {};
 
     return (
         <CoursesContext.Provider
