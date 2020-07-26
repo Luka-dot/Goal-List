@@ -13,7 +13,7 @@ import {
 } from '@ionic/react';
 
 import './EditableGoal.css';
-import { addOutline, trash, options } from 'ionicons/icons';
+import { trash } from 'ionicons/icons';
 
 const CourseItem: React.FC<{
     title: string;
