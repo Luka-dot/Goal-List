@@ -15,18 +15,12 @@ import {
     IonTextarea
 } from '@ionic/react';
 import { addOutline } from 'ionicons/icons';
-// import { useHistory } from 'react-router-dom';
 
 import AddCourseModal from '../components/CourseModal';
 import CoursItem from '../components/CoursItem';
 import CoursesContext from '../data/courses-context';
 
 const Courses: React.FC = () => {
-    // const history = useHistory();
-
-    // const changePageHandler = () => {
-    //   history.push('/course-goals');
-    // };
 
     const [addingCourse, setAddingCourse] = useState(false);
 
