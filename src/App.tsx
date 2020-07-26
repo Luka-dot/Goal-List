@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   IonApp,
   IonRouterOutlet,
@@ -9,7 +9,8 @@ import { IonReactRouter } from '@ionic/react-router';
 import Filter from './pages/Filter';
 import CourseTabs from './pages/CourseTabs';
 import SideDrawer from './components/SideDrawer';
-import CoursesContextProvider from './data/CoursesContextProvider';
+
+import CourseContext from './data/courses-context';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,11 +33,19 @@ import './theme/variables.css';
 import './theme/theme.css';
 
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+  const coursesCtx = useContext(CourseContext);
+
+  const { initContext } = coursesCtx
+
+  useEffect (() => {
+    initContext()
+  }, [initContext]);
+
+  return (
   <IonApp>
     <IonReactRouter>
       <SideDrawer />
-      <CoursesContextProvider>
       <IonRouterOutlet id="main">  
         <Route path="/filter" exact>
           <Filter />
@@ -46,9 +55,8 @@ const App: React.FC = () => (
         </Route>
         <Redirect path='/' to='/courses' exact />
       </IonRouterOutlet>
-      </CoursesContextProvider>
     </IonReactRouter>
   </IonApp>
-);
+)};
 
 export default App;

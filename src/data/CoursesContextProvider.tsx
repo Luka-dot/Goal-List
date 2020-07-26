@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Plugins } from '@capacitor/core';
 
 import CoursesContext, { Course, Goal } from './courses-context';
@@ -7,34 +7,7 @@ const { Storage } = Plugins;
 
 const CoursesContextProvider: React.FC = props => {
     const [courses, setCourses] = useState<Course[]>([
-        {
-            id: 'c1',
-            title: 'Mountain camping trip',
-            enrolled: new Date('09/22/2020'),
-            goals: [
-                { id: 'c1g1', text: 'Tent', completed: false },
-                { id: 'c1g2', text: 'sleeping bag', completed: false },
-                { id: 'c1g3', text: 'fire starter', completed: false },
-                { id: 'c1g4', text: 'Enough food for 3 days', completed: false },
-                { id: 'c1g5', text: 'warm clothes for night', completed: false },
-            ],
-            included: true,
-        },
-        {
-            id: 'c2',
-            title: 'Grocery shopping list',
-            enrolled: new Date('04/01/2020'),
-            goals: [
-                { id: 'c2g1', text: 'bread', completed: false },
-                { id: 'c2g2', text: 'milk', completed: false },
-                { id: 'c2g3', text: 'eggs', completed: false },
-                { id: 'c2g4', text: 'cereal', completed: false },
-                { id: 'c2g5', text: 'fish to grill', completed: false },
-                { id: 'c2g6', text: 'coffee', completed: false },
-                { id: 'c2g7', text: 'popcorn', completed: false },
-            ],
-            included: true,
-        }
+        
     ]);
 
     useEffect(() => {
@@ -161,7 +134,21 @@ const CoursesContextProvider: React.FC = props => {
         })
       };
 
-      const initContext = () => {};
+      const initContext = useCallback(async () => {
+        const coursesData = await Storage.get({key: 'courses'});
+        const storedCourses = coursesData.value ? JSON.parse(coursesData.value) : [{
+          id: 'c1',
+          title: 'Example of the list',
+          enrolled: new Date('09/22/2020'),
+          goals: [
+              { id: 'c1g1', text: 'Swipe right for EDIT', completed: false },
+              { id: 'c1g2', text: 'Swipe left to delete', completed: false },
+              { id: 'c1g3', text: 'Use text area below to add Item', completed: false },
+          ],
+          included: true,
+        }];
+        setCourses(storedCourses);
+      }, []);
 
     return (
         <CoursesContext.Provider
@@ -173,7 +160,8 @@ const CoursesContextProvider: React.FC = props => {
                 updateGoal: updateGoal,
                 changeCourseFilter: changeCourseFilter,
                 completeGoal: completeGoal,
-                onListDelete: onListDelete
+                onListDelete: onListDelete,
+                initContext: initContext
             }}
         >
             {props.children}
