@@ -11,7 +11,6 @@ import {
   IonLabel,
   IonItem,
   IonText,
-  IonTextarea
 } from '@ionic/react';
 
 import CoursesContext from '../data/courses-context';

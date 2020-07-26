@@ -74,8 +74,8 @@ const CourseGoals: React.FC = () => {
   const markCompleteHandler = (goalId: string, event: React.MouseEvent) => {
     
     coursesCtx.completeGoal(selectedCourseId, goalId, completed);
-     const goal = selectedCourse?.goals.find(g => g.id === goalId);
-     setCompleted((completed) ? false : true);
+    const goal = selectedCourse?.goals.find(g => g.id === goalId);
+    setCompleted((completed) ? false : true);
     // selectedGoalIdRef.current = goalId;
     // // if (completed === false) {
     // //   setCompleted(true)

@@ -64,10 +64,22 @@ const CoursesContextProvider: React.FC = props => {
         })
      };
 
+    const onListDelete = (courseId: string) => {
+      console.log('inside delete CourseContext', courseId);
+      setCourses(() => {
+        let updatedCourses = [...courses];
+        const updatedCourseIndex = updatedCourses.findIndex(courses => courses.id === courseId);
+        const updatedCourse2 =  updatedCourses.filter((course) => course.id !== courseId);
+        updatedCourses = updatedCourse2;
+        return updatedCourses;
+    })
+    };
+
     const deleteGoal = (courseId: string, goalId: string) => { 
         setCourses((curCourses) => {
             const updatedCourses = [...curCourses];
             const updatedCourseIndex = updatedCourses.findIndex(courses => courses.id === courseId);
+
             const updatedCourseGoals = updatedCourses[updatedCourseIndex].goals.filter((goal) => goal.id !== goalId);
             const updatedCourse ={...updatedCourses[updatedCourseIndex]};
             updatedCourse.goals = updatedCourseGoals;
@@ -151,7 +163,7 @@ const CoursesContextProvider: React.FC = props => {
                 updateGoal: updateGoal,
                 changeCourseFilter: changeCourseFilter,
                 completeGoal: completeGoal,
-                
+                onListDelete: onListDelete
             }}
         >
             {props.children}

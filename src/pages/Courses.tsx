@@ -39,12 +39,17 @@ const Courses: React.FC = () => {
         setAddingCourse(false);
     };
 
+    const courseDeleteHandler = (courseId: string) => {
+        coursesCtx.onListDelete(courseId);
+    };
+
     return (
         <React.Fragment>
             <AddCourseModal
                 show={addingCourse}
                 onCancel={cancelAddCourse}
                 onSave={courseAddHandler}
+                
             />
             <IonPage>
                 <IonHeader>
@@ -61,6 +66,7 @@ const Courses: React.FC = () => {
                                         title={course.title}
                                         enrolmentDate={course.enrolled}
                                         id={course.id}
+                                        onListDelete={courseDeleteHandler.bind(null, course.id)}
                                     />
                                 </IonCol>
                             </IonRow>

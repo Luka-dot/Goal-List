@@ -19,6 +19,7 @@ const CourseItem: React.FC<{
     title: string;
     enrolmentDate: Date;
     id: string;
+    onListDelete: () => void;
 }> = props => {
 
     return (
@@ -38,7 +39,7 @@ const CourseItem: React.FC<{
                 <IonRow >
                     <IonCol>
                         <IonItem className="ion-text-left">
-                            <IonIcon icon={trash}  ><IonButton></IonButton></IonIcon>
+                            <IonButton color="danger" onClick={props.onListDelete}><IonIcon icon={trash} ></IonIcon></IonButton>
                         </IonItem>
                     </IonCol>
                     <IonCol>
