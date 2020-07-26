@@ -5,8 +5,15 @@ import {
     IonCardTitle,
     IonCardSubtitle,
     IonCardContent,
-    IonButton
+    IonButton,
+    IonIcon,
+    IonRow,
+    IonCol,
+    IonItem
 } from '@ionic/react';
+
+import './EditableGoal.css';
+import { addOutline, trash } from 'ionicons/icons';
 
 const CourseItem: React.FC<{
     title: string;
@@ -27,8 +34,15 @@ const CourseItem: React.FC<{
                     })}
                 </IonCardSubtitle>
             </IonCardHeader>
-            <IonCardContent>
-                <div className="ion-text-right">
+            <IonCardContent id="listCol">
+                <IonRow > 
+                    <IonCol>
+                    <IonItem className="ion-text-left">
+                    <IonIcon icon={trash} ><IonButton></IonButton></IonIcon>
+                    </IonItem>
+                    </IonCol>
+                    <IonCol>
+                    <IonItem className="ion-text-right">
                     <IonButton
                         fill="clear"
                         color="secondary"
@@ -36,7 +50,9 @@ const CourseItem: React.FC<{
                     >
                         View List items
                     </IonButton>
-                </div>
+                    </IonItem>  
+                    </IonCol> 
+                </IonRow>
             </IonCardContent>
         </IonCard>
     )

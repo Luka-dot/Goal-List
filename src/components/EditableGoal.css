@@ -22,3 +22,8 @@
     color: black;
     font-weight: 800;
 }
+
+#listCol {
+    display:inline-block;
+    width: 100%;
+}
