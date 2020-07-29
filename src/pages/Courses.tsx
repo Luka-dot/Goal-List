@@ -28,7 +28,7 @@ const Courses: React.FC = () => {
     const coursesCtx = useContext(CoursesContext);
 
     const selectedCourseId = useParams<{ courseId: string }>().courseId;
-    const selectedCourse = coursesCtx.courses.find(c => c.id === selectedCourseId);
+    // const selectedCourse = coursesCtx.courses.find(c => c.id === selectedCourseId);
 
     const startAddCourseHandler = () => {
         setAddingCourse(true);
@@ -49,12 +49,12 @@ const Courses: React.FC = () => {
         coursesCtx.onListDelete(courseId);
     };
 
-    const startDeleteHandler = (courseId: string) => {
-        const selectedCourseId = courseId
-        setStartedDeleting(true);
-        console.log('inside startDel ', courseId)
-        // courseDeleteHandler(courseId)
-    };
+    // const startDeleteHandler = (courseId: string) => {
+    //     const selectedCourseId = courseId
+    //     setStartedDeleting(true);
+    //     console.log('inside startDel ', courseId)
+    //     // courseDeleteHandler(courseId)
+    // };
 
     return (
         <React.Fragment>
