@@ -11,7 +11,6 @@ import {
     IonFab,
     IonFabButton,
     IonIcon,
-    IonItem,
     IonAlert
 } from '@ionic/react';
 import { addOutline } from 'ionicons/icons';
