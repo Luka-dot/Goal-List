@@ -49,12 +49,12 @@ const Courses: React.FC = () => {
         coursesCtx.onListDelete(courseId);
     };
 
-    const startDeleteHandler = (courseId: string) => {
-        const selectedCourseId = courseId
-        setStartedDeleting(true);
-        console.log('inside startDel ', courseId)
-        // courseDeleteHandler(courseId)
-    };
+    // const startDeleteHandler = (courseId: string) => {
+    //     const selectedCourseId = courseId
+    //     setStartedDeleting(true);
+    //     console.log('inside startDel ', courseId)
+    //     courseDeleteHandler(courseId)
+    // };
 
     return (
         <React.Fragment>
