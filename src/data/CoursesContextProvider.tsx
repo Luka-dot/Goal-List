@@ -49,7 +49,7 @@ const CoursesContextProvider: React.FC = props => {
       console.log('inside delete CourseContext', courseId);
       setCourses(() => {
         let updatedCourses = [...courses];
-        const updatedCourseIndex = updatedCourses.findIndex(courses => courses.id === courseId);
+      //  const updatedCourseIndex = updatedCourses.findIndex(courses => courses.id === courseId);
         const updatedCourse2 =  updatedCourses.filter((course) => course.id !== courseId);
         updatedCourses = updatedCourse2;
         return updatedCourses;
