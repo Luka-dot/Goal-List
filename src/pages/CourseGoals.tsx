@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, KeyboardEvent } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import {
   IonHeader,
   IonToolbar,
@@ -10,7 +10,6 @@ import {
   IonList,
   IonButton,
   IonIcon,
-  IonFab,
   IonFabButton,
   isPlatform,
   IonAlert,
@@ -18,7 +17,6 @@ import {
   IonRow,
   IonCol,
   IonItem,
-  IonTextarea,
   IonInput
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
