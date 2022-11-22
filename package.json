@@ -48,6 +48,6 @@
   "devDependencies": {
     "@capacitor/cli": "2.3.0",
     "@ionic/app-scripts": "^3.2.4",
-    "react-scripts": "3.4.0"
+    "react-scripts": "5.0.1"
   }
 }
